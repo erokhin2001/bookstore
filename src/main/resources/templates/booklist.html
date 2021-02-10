@@ -7,27 +7,31 @@
     </head>
 
     <body>
-        <div class="col-md-4">
+    <div class="container">
             <h1>Books</h1>
-        </div>
 
-        <table class="table table-striped">
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Year</th>
-                <th>ISBN</th>
-                <th>Price</th>
-            </tr>
-            <tr th:each = "book : ${books}">
-                <td th:text="${book.title}"></td>
-                <td th:text="${book.author}"></td>
-                <td th:text="${book.year}"></td>
-                <td th:text="${book.isbn}"></td>
-                <td th:text="${book.price}"></td>
-<!--                <td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-danger">Delete</a></td>-->
-            </tr>
-        </table>
-        <a href="/add" class="btn btn-success">Add Book</a>
+            <table class="table table-striped">
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Year</th>
+                    <th>ISBN</th>
+                    <th>Price</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                <tr th:each = "book : ${books}">
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.year}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td th:text="${book.price}"></td>
+                    <td><a th:href="@{/delete/{id}(id=${book.bookId})}" class="btn btn-danger">Delete</a></td>
+                    <td><a th:href="@{/edit/{id}(id=${book.bookId})}" class="btn btn-default">Edit</a></td>
+                </tr>
+            </table>
+            <a href="/add" class="btn btn-success">Add Book</a>
+
+        </div>
     </body>
 </html>

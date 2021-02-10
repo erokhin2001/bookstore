@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Edit book</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+    </head>
+
+    <body>
+        <div  class="container">
+            <h1>Edit book</h1>
+            <div>
+                <form th:object="${book}" th:action="@{../save}" action="#" method="post"
+                      class="form-horizontal form-control-sm">
+                    <input type="hidden" id="bookId" th:field="*{bookId}" />
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" placeholder="Enter title"
+                               id="title" th:field="*{title}" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" class="form-control" placeholder="Enter author"
+                               id="author" th:field="*{author}" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="year">Year</label>
+                        <input type="text" class="form-control" placeholder="Enter year"
+                               id="year" th:field="*{year}" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="isbn">ISBN</label>
+                        <input type="text" class="form-control" placeholder="Enter ISBN"
+                               id="isbn" th:field="*{isbn}" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="text" class="form-control" placeholder="Enter price"
+                               id="price" th:field="*{price}" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-success"/>
+                        <a class="btn btn-default" href="/booklist">Cancel</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
